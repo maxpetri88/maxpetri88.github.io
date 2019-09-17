@@ -6,12 +6,33 @@ Colorblind safe color palette from colorbrewer2.org
 #b2abd2 - lite blue
 #5e3c99 - blue
 */
-body {
-  background-color: #f7f7f7;
-  color: #5e3c99;
-  text-align: center;
+#header {/* changed the header background color to lite blue. */
+  background-color: #b2abd2;
 }
+h1 {/* changed the color of the h1 font to orange, create the padding space by 5px
+and set margin to 0.*/
+  color: #e66101;
+  padding: 5px;
+  margin: 0;
+}
+#body-container {/* changed the color of the area around the BODY to blue,
+  controlled the space with max-width so it always displays at 1000px wide,
+  The browser calculates a margin, height is set to 100vh, the border is going
+  to be 2px solid and lite blue and added a border radius to make a smooth
+  rounded edge using 25px and overflow will be clipped away. */
+  background-color: #5e3c99;
+  max-width: 1000px;
+  margin:auto;
+  height: 100vh;
+  border: 2px solid #b2abd2;
+  border-radius: 25px;
+  overflow:hidden; */ Funny note: THe font for my list is the same as background,
+   so i need to change that.*/
 
-h1 {
-  color: #e66101
+}
+body { /* */
+  background-color: #f7f7f7;
+  color: #f7f7f7;
+  text-align: center;
+  margin: 0;
 }
