@@ -9,17 +9,20 @@ Colorblind safe color palette from colorbrewer2.org
 #header {/* changed the header background color to lite blue. */
   background-color: #b2abd2;
 }
+
 h1 {/* changed the color of the h1 font to orange, create the padding space by 5px
 and set margin to 0.*/
   color: #e66101;
   padding: 5px;
   margin: 0;
 }
+
 #body-container {/* changed the color of the area around the BODY to blue,
   controlled the space with max-width so it always displays at 1000px wide,
-  The browser calculates a margin, height is set to 100vh, the border is going
-  to be 2px solid and lite blue and added a border radius to make a smooth
-  rounded edge using 25px and overflow will be clipped away. */
+  The browser calculates a margin, height is set to 100vh (Relative to 1% of
+  the height of the viewport*), the border is going to be 2px solid and lite
+  blue and added a border radius to make a smooth rounded edge using 25px and
+  overflow will be clipped away. */
   background-color: #5e3c99;
   max-width: 1000px;
   margin:auto;
@@ -30,9 +33,25 @@ and set margin to 0.*/
    so i need to change that.*/
 
 }
-body { /* */
+body { /*  	Bacground-color set it to white; color: set the font of body to
+  white; text-align: center Specifies the horizontal alignment of text:
+  Centers the text; margin: Sets all the margin properties in one declaration,
+   default is 0.*/
   background-color: #f7f7f7;
   color: #f7f7f7;
   text-align: center;
   margin: 0;
+}
+
+#profile-picture { /* float moved the image to the left (The element floats to
+  the left of its container)  and allowed the text to raised up next to the
+  picture.*/
+  float: left;
+}
+
+#welcome-text { /* padding top allowed the welcome text to have a 25px space
+  from the top of the conatiner(Sets the top padding of an element). and font
+  size made the text larger.*/
+  padding-top: 25px;
+  font-size: 25px;
 }
