@@ -55,3 +55,14 @@ body { /*  	Bacground-color set it to white; color: set the font of body to
   padding-top: 25px;
   font-size: 25px;
 }
+
+#research-interests { /* text-align left: aligned the orderedlist to the left;
+  the font size for the text and header was made bigger; the position and left
+  command (The element is positioned relative to its normal position, so
+  "left:20px" adds 20 pixels to the element's LEFT position), with out it the
+  list would push over into the image. */
+  text-align: left;
+  font-size: 25px;
+  position: relative;
+  left: 50px;
+}
