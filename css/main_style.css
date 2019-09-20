@@ -66,3 +66,8 @@ body { /*  	Bacground-color set it to white; color: set the font of body to
   position: relative;
   left: 50px;
 }
+
+footer {
+  color: #5e3c99;
+  text-align: left;
+}
