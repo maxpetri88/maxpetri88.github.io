@@ -3,21 +3,25 @@
 //window.alert('5+6');
 //document.write('<h1>A heading</h1>');
 //document.write('<p>A sentence.</p>');
-/* const x = "web";
+/* Task 3
+const x = "web";
 const y = "mapping";
 const out = x + y;
 document.write(out);
 */
+
 // A prompt box is used to prompt users to input a value before entering a page.
-/*user_name = window.prompt("Please enter your name", "Type your name here");
-document.write(user_name);
-*/
-/*const x = 22;
+user_name = window.prompt("Please enter your name", "Type your name here");
+document.write("Hello " + user_name + "!");
+
+/* Task 4
+const x = 22;
 const y = 33;
 document.writeln(x + y);
 document.writeln("<br>");
 document.writeln(x += 33);
 */
+/* Task 5
 document.writeln("<button onclick='condition()'>Conditional Test</button>")
 
 function condition()
@@ -32,3 +36,4 @@ function condition()
     document.writeln("You chose Cancel!");
   }
 }
+*/
