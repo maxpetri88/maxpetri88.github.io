@@ -19,7 +19,7 @@
     </div>
     <div id="welcome-text"> <!-- this section is the welcoming text and links to
     related organizations.-->
-      Welcome to my webpage.<br>
+      My name is Max Petri.<br>
       I am a student in the
       <a href="https://www.geo.txstate.edu/">Geography Department</a> at
       <a href="https://txstate.edu/">Texas State University</a>.
@@ -35,8 +35,22 @@
 
     </div>
   </div>
+
 </body>
 <footer>
-  © 2019 by Max Petri
+  <div id="copyright">
+    <script>
+    // new Date() creates a new date object with the current date and time
+    var today = new Date();
+    // Get the year as a four digit number (yyyy)
+    var year = today.getFullYear();
+    // Writes the date from the vars above to a new line and ammends Copyright,
+    // symbol and my name to the date.
+    document.writeln("Copyright &copy; " + year);
+    document.write(" by Max Petri")
+    </script>
+  </div>
+
+  <!--© 2019 by Max Petri-->
 </footer>
 </html>
