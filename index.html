@@ -3,16 +3,19 @@
 <head>
   <title>Max Petri</title> <!-- the styling for this webpage is located at the
     below external css file.-->
-  <link rel="stylesheet" type="text/css" href="css/main_style.css"
-
+  <link rel="stylesheet" type="text/css" href="css/main_style.css">
+  <!-- the external link to JS -->
+  <script src="javascript/external.js"></script>
 </head>
 <body>
   <div id="body-container">
     <div id="header"> <!--here is the header-->
       <h1>
-        <!-- here is my js external connector -->
-        <script src="javascript/external.js"></script>
+
       </h1>
+      <script>
+      document.write(welcome());
+      </script>
     </div>
     <div id="profile-picture"> <!-- this is the profile picture.-->
       <img src=images/profile-picture.jpg width=500px height=500px />
