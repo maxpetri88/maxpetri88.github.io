@@ -62,7 +62,7 @@ body { /*  	Bacground-color set it to white; color: set the font of body to
   "left:20px" adds 20 pixels to the element's LEFT position), with out it the
   list would push over into the image. */
   text-align: left;
-  font-size: 25px;
+  font-size: 18px;
   position: relative;
   left: 50px;
 }
@@ -71,6 +71,11 @@ body { /*  	Bacground-color set it to white; color: set the font of body to
   width: 1500px;
   text-align: center;
   bottom: 20px;
+}
+#webmap-reviews{
+  text-align: left;
+  font-size: 25px;
+  position: relative;
 }
 /*footer {
   color: #5e3c99;
