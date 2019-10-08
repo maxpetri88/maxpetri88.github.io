@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,6 +20,7 @@
   <link rel="stylesheet" type="text/css" href="css/main_style.css">
   <!-- the external link to JS -->
   <script src="javascript/external.js"></script>
+
 </head>
 <body>
   <div id="body-container">
@@ -62,12 +64,19 @@
     <h3>My First Webmap</h3>
     <div id="mapid" style="width: 600px; height: 400px; margin: auto;">
     <script>
-      var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={access_Token}', {
+      var mymap = L.map('mapid');
+      /*L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={access_Token}', {
         maxZoom: 18,
         id: 'mapbox.mapbox-traffic-v1',
         access_Token: mapbox_access_token
       }).addTo(mymap);
+*/
+      /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      }).addTo(mymap);*/
+
+      L.tileLayer('http://a.tile.stamen.com/toner/${z}/${x}/${y}.png', {
+      }).addTo(mymap);
+
 
       var marker = L.marker([51.5, -0.09]).addTo(mymap);
 
@@ -99,6 +108,22 @@
       polygon.on('click', function(e){
         mymap.setView(e.latlng, 13);
       });
+
+      var ZoomViewer = L.Control.extend({
+        onAdd: function(){
+          var gauge = L.DomUtil.create('div');
+          gauge.style.width = '200px';
+          gauge.style.background = 'rbga(255,255,255,0.5)';
+          gauge.style.textAlign = 'left';
+          mymap.on('zoomstart zoom zoomend', function(ev){
+            gauge.innerHTML = 'Zoom level: ' + mymap.getZoom();
+          })
+          return gauge;
+        }
+      });
+      (new ZoomViewer).addTo(mymap);
+
+      mymap.setView([0, 0], 1);
 
       </script>
     </div>

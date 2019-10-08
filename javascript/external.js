@@ -67,11 +67,12 @@ function webmap_table()
 {
   document.write("<table width=100%>");
   for (var row=0; row < webmaps.length; row++)
-  {
+  {if (column < 2) {document.write("<tr>");
+}
+  else {
     document.write("<tr>");
     for (var column=0; column < webmaps[0].length; column++)
-    { if (column < 2) {document.writeln()}
-    else {
+    {
         document.write("<td>" + webmaps[row][column] + "</td>");
       }
     }
@@ -82,17 +83,22 @@ function webmap_table()
 
 function areacalculator()
 {
-  input type = "number" size = 32 name = "Length"
-  input type = "number" size = 32 name = "Width"
-  input type = "Submit"
-  document.writeln("<button onclick="Length" * "Width">Submit</button>")
 
-//  let x = "Length";
-//  let y = "Width";
-//  document.prompt(x);
-//  document.prompt(y);
+  var length,   // first string entered by user
+  	width,   // second string entered by user
+  	number1,           // first number to add
+  	number2,           // second number to add
+  	times;                 // multiplication of number1 and number2
+  	// read in first number from user as a string
+  	length = window.prompt("Enter first integer", "1" );
+  	// read in second number from user as a string
+  	width = window.prompt( "Enter second integer", "1" );
+  	// convert numbers from strings to integers
+  	number1 = Number(length);
+  	number2 = Number( width );
+  	// multiply the numbers
+  	times = number1 * number2;
+  	// display the results
+  	document.writeln( "<H1>The area of your rectangle is " + times + "</H1>" );
 
-//  message = x * y
-
-//  return message
 }
