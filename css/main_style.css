@@ -26,7 +26,7 @@ and set margin to 0.*/
   background-color: #5e3c99;
   max-width: 2000px;
   margin:auto;
-  height: 150vh;
+  height: 150vh; /* extended vh to encapsulate the whole text */
   border: 2px solid #b2abd2;
   border-radius: 25px;
   overflow:hidden; */ Funny note: THe font for my list is the same as background,
@@ -67,7 +67,8 @@ body { /*  	Bacground-color set it to white; color: set the font of body to
   left: 50px;
 }
 #copyright {
-  position: relative;
+  position: relative; /* changed to relative, so it won't overlap with webmap
+  reviews, and changed bottom to 40px. */
   padding: 20px;
   text-align: center;
   bottom: 40px;

@@ -70,10 +70,29 @@ function webmap_table()
   {
     document.write("<tr>");
     for (var column=0; column < webmaps[0].length; column++)
-    {
+    { if (column < 2) {document.writeln()}
+    else {
         document.write("<td>" + webmaps[row][column] + "</td>");
+      }
     }
     document.write("</tr>");
   }
   document.write("</table>");
+}
+
+function areacalculator()
+{
+  input type = "number" size = 32 name = "Length"
+  input type = "number" size = 32 name = "Width"
+  input type = "Submit"
+  document.writeln("<button onclick="Length" * "Width">Submit</button>")
+
+//  let x = "Length";
+//  let y = "Width";
+//  document.prompt(x);
+//  document.prompt(y);
+
+//  message = x * y
+
+//  return message
 }
