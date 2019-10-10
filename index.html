@@ -12,18 +12,24 @@
   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
   crossorigin=""/>
   </script>
-  <link rel="stylesheet" type="text/css" href="css/map_style.css">
 
+  <link rel="stylesheet" type="text/css" href="css/map_style.css">
   <script src="javascript/secret_keys.js"></script>
-  <title>Max Petri</title> <!-- the styling for this webpage is located at the
+
+  <title>Max Petri</title>
+
+  <!-- the styling for this webpage is located at the
     below external css file.-->
   <link rel="stylesheet" type="text/css" href="css/main_style.css">
+
   <!-- the external link to JS -->
   <script src="javascript/external.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/css/L.Control.OpenCageData.Search.min.css" />
-<script src="https://cdn.jsdelivr.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/js/L.Control.OpenCageSearch.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/opencagedata/leaflet-opencage-search@d4cbd36122efc8d17152b4177ed0e12165305441/dist/js/L.Control.OpenCageSearch.min.js"></script>
+
 
 </head>
+
 <body>
   <div id="body-container">
     <div id="header"> <!--here is the header-->
@@ -65,83 +71,12 @@
     </div>
     <h3>Geocoding Map</h3>
     <div id="mapid" style="width: 600px; height: 400px; margin: auto;">
+      <!-- the external link to map JS -->
+      <script src="javascript/map.js"></script>
     <script>
-      var mymap = L.map('mapid');
 
-      var options = {
-        key: geocoder_api_key,
-        limit: 10
-      };
-      var control = L.Control.openCageSearch(options).addTo(mymap);
-
-      /*L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={access_Token}', {
-        maxZoom: 18,
-        id: 'mapbox.mapbox-traffic-v1',
-        access_Token: mapbox_access_token
-      }).addTo(mymap);*/
-
-//      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//      }).addTo(mymap);
-
-      L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-      }).addTo(mymap);
-
-/*
-      var marker = L.marker([51.5, -0.09]).addTo(mymap);
-
-      var circle = L.circle([51.508, -0.11], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 500
-      }).addTo(mymap);
-
-      var polygon = L.polygon([
-        [51.509, -0.08],
-        [51.503, -0.06],
-        [51.51, -0.047]
-      ]).addTo(mymap);
-
-      var polyline = L.polyline([
-        [51.506, -0.08],
-        [51.502, -0.06],
-        [51.507, -0.047]
-      ]).addTo(mymap);
-
-
-      marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-      circle.bindPopup("I am a circle.");
-      polygon.bindPopup("I am a polygon.");
-
-      marker.on('click', function(e){
-        mymap.setView(e.latlng, 14);
-      });
-
-      circle.on('click', function(e){
-        mymap.setView(e.latlng, 13);
-      });
-
-      polygon.on('click', function(e){
-        mymap.setView(e.latlng, 13);
-      });
-
-      var ZoomViewer = L.Control.extend({
-        onAdd: function(){
-          var gauge = L.DomUtil.create('div');
-          gauge.style.width = '200px';
-          gauge.style.background = 'rbga(255,255,255,0.5)';
-          gauge.style.textAlign = 'left';
-          mymap.on('zoomstart zoom zoomend', function(ev){
-            gauge.innerHTML = 'Zoom level: ' + mymap.getZoom();
-          })
-          return gauge;
-        }
-      });
-      (new ZoomViewer).addTo(mymap);
-*/
-      mymap.setView([0, 0], 1);
-
-      </script>
+      mymap();
+    </script>
     </div>
   </div>
 
