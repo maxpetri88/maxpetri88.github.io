@@ -21,6 +21,27 @@ L.easyPrint({
 	sizeModes: ['A4Portrait', 'A4Landscape']
 }).addTo(mymap);
 
+// markers to add or delete
+var marker_controls = new L.Control.SimpleMarkers();
+mymap.addControl(marker_controls);
+//mymap.deleteControl(marker_controls);
+
+// graticule plugin
+// Add a basic graticule with divisions every 20 degrees
+// as a layer on a map
+L.graticule().addTo(mymap);
+
+// Specify divisions every 10 degrees
+L.graticule({ interval: 10 }).addTo(mymap);
+
+// Specify bold red lines instead of thin grey lines
+L.graticule({
+    style: {
+        color: '#f00',
+        weight: 1
+    }
+}).addTo(mymap);
+
 //		var map = new L.Map('map');
 //		var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 //		var osmAttrib='Map data &copy; OpenStreetMap contributors';
