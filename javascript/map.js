@@ -1,4 +1,11 @@
-var mymap = L.map('mapid');
+var mymap = L.map('mapid', {
+  //fullscreen plugin
+    fullscreenControl: true,
+    // OR
+    fullscreenControl: {
+        pseudoFullscreen: false // if true, fullscreen to page width and height
+    }
+});
 
 L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
 }).addTo(mymap);
@@ -6,9 +13,6 @@ L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
 // coordinate position plugin
 L.control.mousePosition().addTo(mymap);
 
-
-//fullscreen plugin
-//mymap.addControl(new L.Control.Fullscreen()).addTo(mymap);
 
 
 // minimap plugin
