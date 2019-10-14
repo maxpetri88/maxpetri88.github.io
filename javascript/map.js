@@ -7,16 +7,37 @@ var mymap = L.map('mapid', {
     }
 });
 
-L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+var osmURL = 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';
+L.tileLayer(osmURL, {
 }).addTo(mymap);
 
 // coordinate position plugin
 L.control.mousePosition().addTo(mymap);
 
+// print plugin
+L.easyPrint({
+	title: 'My awesome print button',
+	position: 'bottomleft',
+	sizeModes: ['A4Portrait', 'A4Landscape']
+}).addTo(mymap);
+
+//		var map = new L.Map('map');
+//		var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+//		var osmAttrib='Map data &copy; OpenStreetMap contributors';
+//		var osm = new L.TileLayer(osmUrl, {minZoom: 5, maxZoom: 18, attribution: osmAttrib});
+
+//		map.addLayer(osm);
+//		map.setView(new L.LatLng(59.92448055859924, 10.758276373601069),10);
+
+		//Plugin magic goes here! Note that you cannot use the same layer object again, as that will confuse the two map controls
+//		var osm2 = new L.tileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib });
+//		var miniMap = new L.Control.MiniMap(osm2, { toggleDisplay: true }).addTo(map);
 
 
-// minimap plugin
-//var osm2 = new L.TileLayer('https://{s}.tile.opentopomap.org/{0}/{x}/{y}.png', {minZoom: 0, maxZoom: 13, attribution: 'Map data &copy; OpenStreetMap contributors'});
+// minimap plugin - not working at this time
+//var osmAttrib='Map data &copy; OpenStreetMap contributors';
+
+//var osm2 = new L.tileLayer(osmURL, {minZoom: 0, maxZoom: 13, attribution: osmAttrib});
 //var miniMap = new L.Control.MiniMap(osm2).addTo(mymap);
 
 
