@@ -1,5 +1,22 @@
 var mymap = L.map('mapid');
 
+L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+}).addTo(mymap);
+
+// coordinate position plugin
+L.control.mousePosition().addTo(mymap);
+
+
+//fullscreen plugin
+//mymap.addControl(new L.Control.Fullscreen()).addTo(mymap);
+
+
+// minimap plugin
+//var osm2 = new L.TileLayer('https://{s}.tile.opentopomap.org/{0}/{x}/{y}.png', {minZoom: 0, maxZoom: 13, attribution: 'Map data &copy; OpenStreetMap contributors'});
+//var miniMap = new L.Control.MiniMap(osm2).addTo(mymap);
+
+
+// geocoder plugin
 var options = {
   key: geocoder_api_key,
   limit: 10
@@ -143,8 +160,7 @@ marker6.on('click', function(e){
 //      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //      }).addTo(mymap);
 
-L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-}).addTo(mymap);
+
 
 /*
 var marker = L.marker([51.5, -0.09]).addTo(mymap);
