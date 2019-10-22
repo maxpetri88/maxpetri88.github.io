@@ -24,7 +24,6 @@ L.easyPrint({
 // markers to add or delete
 var marker_controls = new L.Control.SimpleMarkers();
 mymap.addControl(marker_controls);
-//mymap.deleteControl(marker_controls);
 
 // graticule plugin
 // Add a basic graticule with divisions every 20 degrees
