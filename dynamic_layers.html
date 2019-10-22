@@ -28,7 +28,7 @@
       var TransportationLayer = new TileLayer({
         url: "http://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer"
       });
-      //declares the basemap and transpo layer
+      // declares the graphics to add to the CitiesLayer
       var CitiesRenderer = {
         type: "simple", // autocasts as new SimpleRenderer()
         symbol: {
@@ -43,6 +43,7 @@
       },
       label: "Cities"
       };
+      // declares the map image based on the USA cities map server
       var CitiesLayer = new MapImageLayer({
         url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer",
         sublayers: [
@@ -53,6 +54,7 @@
           }
         ]
       });
+      //declares the basemap and transpo layer
       var map = new Map({
         basemap: "dark-gray",
         layers: [ TransportationLayer, CitiesLayer ]
