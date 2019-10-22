@@ -93,6 +93,7 @@
         center: [-118.2095, 34.0866]
       });
 
+      // adds the query window
       view.when(function() {
         view.ui.add("optionsDiv", "bottom-right");
         on(dom.byId("doBtn"), "click", doQuery);
@@ -102,6 +103,7 @@
       var expressionSign = dom.byId("signSelect");
       var value = dom.byId("valSelect");
 
+      //defines the query attributes
       function doQuery() {
         resultsLayer.removeAll();
         params.where = attributeName.value + expressionSign.value + value.value;
@@ -109,7 +111,7 @@
         .then(getResults)
         .catch(promiseRejected);
       }
-
+      //adds the results to the map in dialog
       function getResults(response) {
 
         var popResults = arrayUtils.map(response.features, function(
@@ -129,7 +131,7 @@
 
           dom.byId("printResults").innerHTML = popResults.length +
           " results found!";
-//        )
+
       }
       function promiseRejected(error) {
         console.error("Promise rejected: ", error.message);
@@ -144,10 +146,10 @@
       view.ui.add(basemapGallery, {
         position: "top-right"
       });
-
+      // population attribute data service to pull the attributes from
       var popUrl =
       "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/CaliforniaCities/FeatureServer/0";
-
+      // attributes to display in popups
       var popupTemplate = {
         title: "{City}",
         fieldInfos: [{
@@ -173,7 +175,7 @@
       };
 
       var resultsLayer = new GraphicsLayer();
-
+      //where to pull the attribute data from
       var qTask = new QueryTask({
         url: popUrl
       });
@@ -189,6 +191,7 @@
 </head>
 <body>
   <div id="viewDiv"></div>
+    <!-- adds the query dialog-->
     <div class="esri-widget" id="optionsDiv">
     <h2>Cities in California</h2>
     <select class="esri-widget" id="attSelect">
