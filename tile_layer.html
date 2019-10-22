@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Tile Layers</title>
+  <style>
+    html, body, #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.13/"></script>
+  <script>
+
+  //initiates the esri map and mapview
+    require([
+    "esri/Map",
+    "esri/views/MapView",
+    "esri/layers/TileLayer"
+    ],
+    function(Map, MapView, TileLayer){
+      // pulls in the tile layer for World_Transportation
+      var TransportationLayer = new TileLayer({
+        url: "http://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer"
+      });
+      //declares the basemap and transpo layer
+      var map = new Map({
+        basemap: "oceans",
+        layers: [ TransportationLayer ]
+      });
+      //declares the map view over los angeles and zoom level 10
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        zoom: 10,
+        center: [-118.2095, 34.0866]
+      });
+
+    });
+    </script>
+
+</head>
+<body>
+  <div id="viewDiv"></div>
+
+</body>
+</html>
