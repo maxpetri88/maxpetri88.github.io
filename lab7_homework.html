@@ -34,6 +34,7 @@
       require([
       "esri/Map",
       "esri/views/MapView",
+      "esri/layers/TileLayer",
       "esri/layers/FeatureLayer",
       "esri/widgets/BasemapGallery",
       "esri/layers/GraphicsLayer",
@@ -44,9 +45,12 @@
       "dojo/on",
       "dojo/domReady!"
       ],
-      function(Map, MapView, FeatureLayer, BasemapGallery, GraphicsLayer, QueryTask, Query, arrayUtils, dom, on){
+      function(Map, MapView, TileLayer, FeatureLayer, BasemapGallery, GraphicsLayer, QueryTask, Query, arrayUtils, dom, on){
 
-
+        // pulls in the tile layer for openstreetmap
+        var USPlaceNames_tilesLayer = new TileLayer({
+          url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/USPlaceNames_tiles/MapServer"
+        });
 
         // declares the graphics to add to the historicalFiresLayer
         var fireRenderer = {
@@ -78,7 +82,7 @@
         //declares the basemap and transpo layer
         var map = new Map({
           basemap: "dark-gray",
-          layers: [ historicalFiresLayer ]
+          layers: [ USPlaceNames_tilesLayer, historicalFiresLayer ]
         });
 
         //declares the map view over the great basin and zoom level 6
