@@ -236,7 +236,22 @@
     <p><span id="printResults"></span></p>
   </div>
 
+  <footer>
+    <div id="copyright">
+      <script>
+      // new Date() creates a new date object with the current date and time
+      var today = new Date();
+      // Get the year as a four digit number (yyyy)
+      var year = today.getFullYear();
+      // Writes the date from the vars above to a new line and ammends Copyright,
+      // symbol and my name to the date.
+      document.writeln("Copyright &copy; " + year);
+      document.write(" by Max Petri")
+      </script>
+    </div>
 
+    <!--© 2019 by Max Petri-->
+  </footer>
 </body>
 
 </html>
