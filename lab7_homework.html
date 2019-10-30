@@ -88,7 +88,7 @@
           zoom: 6,
           center: [-117.0, 39.0]
         });
-/*
+
         // adds the query window
         view.when(function() {
           view.ui.add("optionsDiv", "bottom-right");
@@ -110,29 +110,29 @@
         //adds the results to the map in dialog
         function getResults(response) {
 
-          var popResults = arrayUtils.map(response.features, function(
+          var fireResults = arrayUtils.map(response.features, function(
             feature) {
               feature.popupTemplate = popupTemplate;
               return feature;
             });
 
-            resultsLayer.addMany(popResults);
-            view.goTo(popResults).then(function() {
+            resultsLayer.addMany(fireResults);
+            view.goTo(fireResults).then(function() {
               view.popup.open({
-                features: popResults,
+                features: fireResults,
                 featureMenuOpen: true,
                 updateLocationEnabled: true
               });
             });
 
-            dom.byId("printResults").innerHTML = popResults.length +
+            dom.byId("printResults").innerHTML = fireResults.length +
             " results found!";
 
         }
         function promiseRejected(error) {
           console.error("Promise rejected: ", error.message);
         }
-*/
+
 
         // adds the basemap gallery
         var basemapGallery = new BasemapGallery({
@@ -148,27 +148,27 @@
         "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/Historical_Wildfire_Boundaries_1870_2015_in_Great_Basin/FeatureServer/0";
         // attributes to display in popups
         var popupTemplate = {
-          title: "{City}",
+          title: "{Fire_Name}",
           fieldInfos: [{
-            fieldName: "Population",
-            label: "Population",
+            fieldName: "Fire_Year",
+            label: "Fire Year",
             format: {
               places: 0,
-              digitSeperator: true
+              digitSeperator: false
             }
           }, {
-            fieldName: "Household",
-            label: "Household",
+            fieldName: "Hectares_B",
+            label: "Hectares",
             format:{
               places: 0,
               digitSeperator: true
             }
           }],
           content:
-            "<b>Population:" + "</b> {Population}" +
-            "<br><b>Households:</b> {Household}" +
-            "<br><b>Latitude:</b> {Latitude}" +
-            "<br><b>Longitude:</b> {Longitude}"
+            "<b>Fire Year:" + "</b> {Fire_Year}" +
+            "<br><b>Hectares:</b> {Hectares_B}"
+            // does not exist in feature service"<br><b>Latitude:</b> {Latitude}" +
+            //"<br><b>Longitude:</b> {Longitude}"
         };
 
         var resultsLayer = new GraphicsLayer();
@@ -193,10 +193,10 @@
   <div id="viewDiv"></div>
     <!-- adds the query dialog-->
     <div class="esri-widget" id="optionsDiv">
-    <h2>Cities in California</h2>
+    <h2>Fires in the Great Basin</h2>
     <select class="esri-widget" id="attSelect">
-      <option value="Population">Population</option>
-      <option value="Household" selected>Households</option>
+      <option value="Fire_Year">Fire Year</option>
+      <option value="Hectares_B" selected>Hectares</option>
     </select>
     <select class="esri-widget" id="signSelect">
       <option value=">">is greater than</option>
@@ -208,6 +208,11 @@
       <option value="100000">100,000</option>
       <option value="150000">150,000</option>
       <option value="200000">200,000</option>
+      <option value="1910">Year 1910</option>
+      <option value="1925">Year 1925</option>
+      <option value="1950">Year 1950</option>
+      <option value="1975">Year 1975</option>
+      <option value="2000">Year 2000</option>
     </select>
     <br>
     <br>
