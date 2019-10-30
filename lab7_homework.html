@@ -34,6 +34,7 @@
       require([
       "esri/Map",
       "esri/views/MapView",
+      "esri/widgets/LayerList",
       "esri/layers/TileLayer",
       "esri/layers/FeatureLayer",
       "esri/widgets/BasemapGallery",
@@ -45,9 +46,9 @@
       "dojo/on",
       "dojo/domReady!"
       ],
-      function(Map, MapView, TileLayer, FeatureLayer, BasemapGallery, GraphicsLayer, QueryTask, Query, arrayUtils, dom, on){
+      function(Map, MapView, LayerList, TileLayer, FeatureLayer, BasemapGallery, GraphicsLayer, QueryTask, Query, arrayUtils, dom, on){
 
-        // pulls in the tile layer for openstreetmap
+        // pulls in the tile layer for USPlaceNames_tiles and sets opactiy to 0.1
         var USPlaceNames_tilesLayer = new TileLayer({
           url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/USPlaceNames_tiles/MapServer",
           opacity: 0.1
@@ -146,6 +147,15 @@
         // positions it to the top right
         view.ui.add(basemapGallery, {
           position: "top-right"
+        });
+
+        // layer list widget, can toggle layers on/off
+        var layerList = new LayerList({
+          view: view
+        });
+        // Adds widget below other elements in the top left corner of the view
+        view.ui.add(layerList, {
+          position: "bottom-left"
         });
 
         // fire attribute data service to pull the attributes from
